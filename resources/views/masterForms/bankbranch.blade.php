@@ -86,8 +86,9 @@
 			</div>
 		</div>
 	</div>
-</div></div>
-{{-- Modal Form Show POST --}}
+</div>
+</div>
+<!-- Modal Form Show POST -->
 <div id="show" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -113,7 +114,7 @@
 	</div>
 </div>
 
-{{-- Modal Form Edit and Delete Post --}}
+<!-- Modal Form Edit and Delete Post -->
 <div id="myModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -128,7 +129,7 @@
 						<label class="control-label col-sm-2" for="location">ID :</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="id" name="id"
-							placeholder="Write the bank's branch name" required>
+							placeholder="Write the bank's branch name">
 							<p class="error text-center alert alert-danger hidden"></p>
 						</div>
 					</div>
@@ -151,22 +152,24 @@
 							<p class="error text-center alert alert-danger hidden"></p>
 						</div>
 					</div>
-				</div>
+					
+				
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-success pull-left" value="Update">
+					<input type="submit" class="btn btn-success" value="Update">
 					<button class="btn btn-warning" type="button" data-dismiss="modal">
 						<span class="glyphicon glyphicon-remobe"></span>Close
 					</button>
 				</div>
+		
 				</form>
-				
 				{{-- Form Delete Post --}}
 				<div class="deleteContent">
 					Are You sure want to delete <span class="name"></span>?
 					<span class="hidden id"></span>
 				</div>
+				
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footerr">
 
 				<button type="button" class="btn actionBtn" data-dismiss="modal">
 					<span id="footer_action_button" class="glyphicon"></span>
@@ -225,11 +228,11 @@
 	})
 
 
-//Edit bank branches
+//------------------Edit bank branches-------------------------------
 $(document).on('click', '.edit-modal', function(e) {
 	$('.modal-title').text('Post Edit');
 	$('.deleteContent').hide();
-	$('.modal-footer').hide();
+	$('.modal-footerr').hide();
 	$('.btn btn-warning').hide();
 	$('.form-horizontal').show();
 	var id = $(this).data('id');
@@ -241,7 +244,7 @@ $(document).on('click', '.edit-modal', function(e) {
 	})
 
 });
-  //update bank branches
+  //---------------update bank branches------------------
   $('#branch-update').on('submit',function(e){
   	e.preventDefault();
   	var data = $(this).serialize();
@@ -273,16 +276,17 @@ $(document).on('click', '.edit-modal', function(e) {
 
   //-----------------DELETE BANK BRANCHES-------------------
   $(document).on('click', '.delete-modal', function() {
+  	
   	$('#footer_action_button').text(" Delete");
-  	$('#footer_action_button').removeClass('glyphicon-check');
-  	$('#footer_action_button').addClass('glyphicon-trash');
-  	$('.actionBtn').removeClass('btn-success');
-  	$('.actionBtn').addClass('btn-danger');
-  	$('.actionBtn').addClass('delete');
-  	$('.modal-title').text('Delete Post');
-  	$('.id').text($(this).data('id'));
-  	$('.deleteContent').show();
-  	$('.form-horizontal').hide();
+    $('#footer_action_button').removeClass('glyphicon-check');
+    $('#footer_action_button').addClass('glyphicon-trash');
+    $('.actionBtn').removeClass('btn-success');
+    $('.actionBtn').addClass('btn-danger');
+    $('.actionBtn').addClass('delete');
+    $('.modal-title').text('Delete Post');
+    $('.id').text($(this).data('id'));
+    $('.deleteContent').show();
+    $('.form-horizontal').hide();
   	$('.name').html($(this).data('name'));
   	$('#myModal').modal('show');
   });
