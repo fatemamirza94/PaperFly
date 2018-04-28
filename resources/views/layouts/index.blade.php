@@ -37,13 +37,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Division</a>
+                    <a href="{{route('division')}}">Division</a>
                 </li>
                 <li>
-                    <a href="#">District</a>
+                    <a href="{{route('district')}}">District</a>
                 </li>
                 <li>
-                    <a href="#">Thana</a>
+                    <a href="{{route('thana')}}">Thana</a>
                 </li>
                 <li>
                     <a href="{{route('banks')}}">Bank</a>
