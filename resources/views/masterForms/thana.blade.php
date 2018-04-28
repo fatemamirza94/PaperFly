@@ -245,7 +245,6 @@
       }
         });
     })
-
     //Edit bank branches
 $(document).on('click', '.edit-modal', function(e) {
     $('.modal-title').text('Post Edit');
