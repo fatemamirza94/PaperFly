@@ -7,6 +7,8 @@ use App\District;
 use App\Thana;
 use App\Bank;
 use App\Atm;
+use Illuminate\Support\Facades\Input;
+use App\http\Requests;
 class AtmController extends Controller
 {
    public function index(){
@@ -42,5 +44,35 @@ class AtmController extends Controller
         }
      }
 
+   public function edit(Request $request)
+    {
+        if($request->ajax())
+        {
+            $atm = Atm::find($request->id);
+            $atm->update($request->all());
+            return response($atm);
+        }
+    }
+    public function update(Request $request)
+    {
+        if($request->ajax())
+        {
+            $atm = Atm::find($request->id);
+            $atm->update($request->all());
+            return response($atm);
+        }
+    }
+    /*public function find($id)
+    {
+        return Bankbranch::join('banks','banks.id','=','bankbranches.bank_id')->selectRaw('banks.name','bankbranches.id')->where('bankbranches,id',$id)->bank();
+    }*/
+       public function destroy(Request $request)
+    {
+       $atm = Atm::findOrFail($request->id);
+       $atm->delete();
 
+       // $atm = Atm::find ($request->id)->delete();
+        return response()->json();
+    }
+        
 }
