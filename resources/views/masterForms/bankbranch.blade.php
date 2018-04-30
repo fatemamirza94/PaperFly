@@ -169,7 +169,7 @@
 				</div>
 				
 			</div>
-			<div class="modal-footerr">
+			<div class="modal-footer">
 
 				<button type="button" class="btn actionBtn" data-dismiss="modal">
 					<span id="footer_action_button" class="glyphicon"></span>
