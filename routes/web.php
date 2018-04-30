@@ -45,3 +45,18 @@ Route::post('addThana','ThanaController@store')->name('addThana');
 Route::get('thanaedit','ThanaController@edit')->name('thanaedit');
 Route::post('editThana','ThanaController@update')->name('editThana');
 Route::post('deleteThana','ThanaController@destroy');
+
+
+//ATM routing (for view and add only)
+Route::get('atm','AtmController@index')->name('atm');
+Route::post('addAtm','AtmController@store')->name('addAtm');
+
+
+
+
+
+Route::get('/atm','AtmController@index');
+//Route::get('/atm1','AtmController@atmfunct');
+
+Route::get('findThanaName','AtmController@findThanaName')->name('findThanaName');
+
