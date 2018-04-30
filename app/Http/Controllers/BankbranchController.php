@@ -24,7 +24,7 @@ class BankbranchController extends Controller
     	if($request->ajax())
         {
             $branches = Bankbranch::create($request->all());
-            return response($branches);
+            return response()->json($branches);
         }
     }
     public function edit(Request $request)
@@ -33,7 +33,7 @@ class BankbranchController extends Controller
         {
             $branches = Bankbranch::find($request->id);
             $branches->update($request->all());
-            return response($branches);
+            return response()->json($branches);
         }
     }
 
@@ -43,20 +43,22 @@ class BankbranchController extends Controller
         {
             $branches = Bankbranch::find($request->id);
             $branches->update($request->all());
-            return response($branches);
+            return response()->json($branches);
         }
     }
-
-    /*public function find($id)
+    public function findbankname(Request $request)
     {
-        return Bankbranch::join('banks','banks.id','=','bankbranches.bank_id')->selectRaw('banks.name','bankbranches.id')->where('bankbranches,id',$id)->bank();
-    }*/
-
+        $data=Bankbranch::select('location','bank_id')->where('bank_id',$request->id)->take(100)->get();
+        return response()->json($data);
+    }
+  
      public function destroy(Request $request)
     {
         $bank = Bankbranch::find ($request->id)->delete();
         return response()->json();
     }
+
+
 
   
 
